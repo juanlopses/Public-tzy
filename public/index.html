@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Auth Screen -->
+        <div class="auth-container" id="authScreen">
+            <h1><i class="fab fa-whatsapp"></i> WhatsApp Clone</h1>
+            <div class="auth-form" id="loginForm">
+                <h2>Iniciar Sesión</h2>
+                <div class="form-group">
+                    <label for="loginEmail">Correo Electrónico</label>
+                    <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••">
+                </div>
+                <button class="btn" id="loginBtn">Ingresar</button>
+                <div class="auth-switch">
+                    ¿No tienes cuenta? <a href="#" id="showRegister">Regístrate</a>
+                </div>
+            </div>
+            
+            <div class="auth-form" id="registerForm" style="display: none;">
+                <h2>Crear Cuenta</h2>
+                <div class="form-group">
+                    <label for="registerName">Nombre Completo</label>
+                    <input type="text" id="registerName" placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Correo Electrónico</label>
+                    <input type="email" id="registerEmail" placeholder="tucorreo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Contraseña</label>
+                    <input type="password" id="registerPassword" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirm">Confirmar Contraseña</label>
+                    <input type="password" id="registerConfirm" placeholder="••••••••">
+                </div>
+                <button class="btn" id="registerBtn">Registrarse</button>
+                <div class="auth-switch">
+                    ¿Ya tienes cuenta? <a href="#" id="showLogin">Inicia Sesión</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main App (initially hidden) -->
+        <div class="app-main" style="display: none; width: 100%; height: 100%;">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">Usuario</div>
+                        <div class="user-status" id="userStatus">En línea</div>
+                    </div>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar contactos...">
+                    </div>
+                </div>
+                
+                <div class="chats-list" id="chatsList">
+                    <!-- Chats will be populated here -->
+                </div>
+            </div>
+            
+            <!-- Chat Area -->
+            <div class="chat-area" id="chatArea">
+                <div class="chat-header-area">
+                    <div class="user-avatar" id="chatUserAvatar">C</div>
+                    <div class="chat-header-info">
+                        <div class="chat-contact-name" id="chatContactName">Contacto</div>
+                        <div class="chat-contact-status" id="chatContactStatus">
+                            <span id="contactStatusText">En línea</span>
+                            <div class="status-indicator online" id="contactStatusIndicator"></div>
+                        </div>
+                    </div>
+                    <div class="pin-toggle" id="pinToggle" title="Activar PIN para este chat">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be populated here -->
+                </div>
+                
+                <div class="message-input-area">
+                    <input type="text" class="message-input" id="messageInput" placeholder="Escribe un mensaje...">
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PIN Modal -->
+        <div class="pin-modal" id="pinModal">
+            <div class="pin-container">
+                <h2>Protege este chat con un PIN</h2>
+                <p>Ingresa un PIN de 4 dígitos para proteger este chat</p>
+                <div class="pin-input">
+                    <input type="number" maxlength="1" class="pin-digit" id="pinDigit1">
+                    <input type="number" maxlength="1" class="pin-digit" id="pinDigit2">
+                    <input type="number" maxlength="1" class="pin-digit" id="pinDigit3">
+                    <input type="number" maxlength="1" class="pin-digit" id="pinDigit4">
+                </div>
+                <div class="pin-actions">
+                    <button class="pin-cancel" id="pinCancel">Cancelar</button>
+                    <button class="pin-confirm" id="pinConfirm">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
