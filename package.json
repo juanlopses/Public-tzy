@@ -1,0 +1,28 @@
+{
+  "name": "whatsapp-clone",
+  "version": "1.0.0",
+  "description": "Aplicación de chat tipo WhatsApp con Express, Socket.IO y JSON como base de datos",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "whatsapp",
+    "express",
+    "socket.io",
+    "json-database"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
